@@ -105,11 +105,10 @@ def main():
 
     dataset_id = status["data"]["defaultDatasetId"]
     items_data = apify_request(
-        "GET", f"/datasets/{dataset_id}/items", token,
+        "GET", f"/datasets/{dataset_id}/items?limit={limit}", token,
     )
     # items_data может быть списком или dict с полем items
     items = items_data if isinstance(items_data, list) else items_data.get("items", [])
-    items = items[:limit]
 
     results = []
     for i, item in enumerate(items, 1):
