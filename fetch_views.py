@@ -109,6 +109,7 @@ def main():
     )
     # items_data может быть списком или dict с полем items
     items = items_data if isinstance(items_data, list) else items_data.get("items", [])
+    items = items[:limit]
 
     results = []
     for i, item in enumerate(items, 1):
