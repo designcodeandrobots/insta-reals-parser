@@ -48,31 +48,37 @@ def main():
     print()
 
     # API ключ
-    token = ask(
-        "Apify API ключ: "
-        "(получить → https://console.apify.com/settings/integrations)\n> "
-    )
+    print("Шаг 1/4 — API ключ Apify")
+    print("Apify — сервис, который скачивает данные из Instagram.")
+    print("Ключ нужен для авторизации. Бесплатный тариф покрывает сотни роликов.")
+    token = ask("Получить ключ → https://console.apify.com/settings/integrations\n> ")
     if not token:
         print("❌ API ключ не введён.")
         sys.exit(1)
 
     # Аккаунт
-    username = ask("\nInstagram аккаунт (например: anarbachoo)\n> ")
+    print("\nШаг 2/4 — Instagram аккаунт")
+    print("Укажи аккаунт, чьи ролики нужно собрать. Работает только с публичными.")
+    username = ask("Например: anarbachoo\n> ")
     if not username.strip("@"):
         print("❌ Аккаунт не введён.")
         sys.exit(1)
     username = username.lstrip("@")
 
     # Количество роликов
-    limit_str = ask("\nСколько роликов собрать? [100]\n> ", "100")
+    print("\nШаг 3/4 — Количество роликов")
+    print("Сколько последних роликов скачать. Чем больше — тем дольше и дороже.")
+    limit_str = ask("По умолчанию: 100\n> ", "100")
     try:
         limit = int(limit_str)
     except ValueError:
         limit = 100
 
     # Выходной файл
+    print("\nШаг 4/4 — Файл для сохранения")
+    print("Куда сохранить таблицу с результатами (CSV открывается в Excel / Google Sheets).")
     default_csv = f"{username}_views.csv"
-    output_str = ask(f"\nКуда сохранить CSV? [{default_csv}]\n> ", default_csv)
+    output_str = ask(f"По умолчанию: {default_csv}\n> ", default_csv)
     output_csv = Path(output_str)
 
     print()
