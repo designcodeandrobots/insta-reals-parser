@@ -14,11 +14,17 @@
 ## Установка
 
 ```bash
-git clone https://github.com/designcodeandrobots/instagram-views.git
-cd instagram-views
+git clone https://github.com/designcodeandrobots/insta-reals-parser.git
+cd insta-reals-parser
 ```
 
 Сторонних зависимостей нет — используется только стандартная библиотека Python.
+
+## Установка через AI-чат
+
+Если хочешь развернуть проект через Claude или другой AI-ассистент — скинь ему ссылку на репозиторий и напиши:
+
+> Склонируй репозиторий https://github.com/designcodeandrobots/insta-reals-parser и запусти `fetch_views.py`. Инструкция в INSTRUCTION.md.
 
 ## Использование
 
