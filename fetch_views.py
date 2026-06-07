@@ -121,6 +121,7 @@ def main():
             "duration_sec": item.get("videoDuration", ""),
             "upload_date": (item.get("timestamp") or "")[:10],
             "caption": (item.get("caption") or "").replace("\n", " ")[:120],
+            "audio_url": item.get("audioUrl", ""),
         })
 
     if not results:
